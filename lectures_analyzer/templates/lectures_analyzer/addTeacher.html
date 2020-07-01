@@ -1,0 +1,48 @@
+{% extends 'lectures_analyzer/main.html' %}
+{% block title %}Add Teacher{% endblock title %}
+{% block navbar %}
+    <ul class="navbar-nav">
+              <li class="nav-item active">
+                <a class="nav-link" href="{% url 'addTeacher' %}">Add Teacher<span class="sr-only">(current)</span></a>
+              </li>
+
+
+            </ul>
+{% endblock navbar %}
+{% block content %}
+    {% if error %}
+  <div class="container-fluid"><br>
+    <div class="row justify-content-center align-items-center">
+
+        <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
+        <div class="alert alert-success text-center" role="alert">
+                Teacher Added Successfully !
+        </div>
+        </div>
+    </div>
+  </div>
+    {% endif %}
+
+<div class="container-fluid">
+    <div class="row justify-content-center align-items-center">
+
+        <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
+            <form method="post" action="">
+                {% csrf_token %}
+                <br>
+                 {{ form }}
+
+                <div><br>
+                    <button class="btn btn-primary form-control mine-btn" type="submit">Submit</button>
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+{% endblock content %}

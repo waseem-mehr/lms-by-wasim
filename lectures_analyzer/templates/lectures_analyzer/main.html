@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+    <!--include bootstrap css-->
+    <link rel="stylesheet" href="{% static 'lectures_analyzer/bootstrap/css/bootstrap.css'  %}" type="text/css"/>
+    <link rel="stylesheet" href="{% static 'lectures_analyzer/styles/main.css' %}" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Yellowtail&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <title>{% block title %}{% endblock title %}</title>
+</head>
+<body>
+<!--nav bar-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark" >
+          <a class="navbar-brand heading-main"  href="{% url 'dashboard' %}">LMS by Wasim</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            {% block navbar %}{% endblock navbar %}
+
+
+          </div>
+
+        </nav>
+<!--end of nav bar-->
+<div class="end"><br>
+
+{% block content %}{% endblock content %}
+</div>
+    <!--footer-->
+{% include 'lectures_analyzer/footer.html' %}
+<!--jquery-->
+<script src="{% static 'lectures_analyzer/bootstrap/js/jquery-3.4.1.min.js' %}"></script>
+<!--bootstrap javascript-->
+<script src="{% static 'lectures_analyzer/bootstrap/js/bootstrap.js' %}"></script>
+{% block script %}{% endblock script %}
+</body>
+</html>
